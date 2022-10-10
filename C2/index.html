@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        :root {
+            --mouse-x: 50%;
+            --mouse-y: 50%;
+            --mouse-size: 80px;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            background-image: url(https://unsplash.it/1920/1080);
+            background-position: center center;
+            background-size: cover;
+        }
+
+        .mask {
+            width: 100vw;
+            height: 100vh;
+            background-color: hsla(0,0%,0%, 0.9);
+            mask: radial-gradient(
+                circle at var(--mouse-x) var(--mouse-y),
+                transparent 40px,
+                black var(--mouse-size)
+            );
+            -webkit-mask: radial-gradient(
+                circle at var(--mouse-x) var(--mouse-y),
+                transparent 40px,
+                black var(--mouse-size)
+            );
+        }
+    </style>
+</head>
+<body>
+    <div class="mask">
+            
+    </div>
+
+    <script>
+        const mask = document.querySelector('.mask');
+        let mouseSize = 80;
+
+        document.addEventListener('pointermove', (pos) => {
+            let x = parseInt(pos.clientX / window.innerWidth * 100);
+            let y = parseInt(pos.clientY / window.innerHeight * 100);
+
+            // write mouse position to variables 
+            mask.style.setProperty('--mouse-x', x + '%');
+            mask.style.setProperty('--mouse-y', y + '%'); 
+        });
+
+        document.addEventListener('mousewheel', (e) => {
+            if(e.deltaY > 0) {
+                // wheel down
+                mouseSize -= 15;
+            } else {
+                // wheel up
+                mouseSize += 15;
+            }
+
+            // limit
+            if(mouseSize < 10) {
+                mouseSize = 10;
+            }
+
+
+            // set var
+            mask.style.setProperty('--mouse-size', `${mouseSize}px`); 
+        });
+    </script>
+</body>
+</html>

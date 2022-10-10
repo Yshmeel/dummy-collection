@@ -1,0 +1,1 @@
+https://www.seedprod.com/change-wordpress-admin-login-url-without-plugin/

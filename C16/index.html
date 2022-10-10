@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="colors">
+        <div class="color" data-color="black"></div>
+        <div class="color" data-color="red"></div>
+        <div class="color" data-color="yellow"></div>
+        <div class="color" data-color="green"></div>
+        <div class="color" data-color="darkblue"></div>
+    </div>
+    <div class="editor">
+        <canvas style="width: 1200px; height: 800px;"></canvas>
+
+        <div class="resize-anchors">
+            <div class="resize-anchor right-middle" data-position="right-middle"></span>
+            <div class="resize-anchor right-bottom" data-position="right-bottom"></span>
+            <div class="resize-anchor bottom-middle" data-position="bottom-middle"></span>
+        </div>
+    </div>
+    <div class="save">
+        <button type="button" id="save-jpg" data-format="jpg">Save to jpg</button>
+        <button type="button" id="save-png" data-format="png">Save to png</button>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
